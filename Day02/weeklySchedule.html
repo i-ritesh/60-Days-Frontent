@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .schedule {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+        }
+        .empty-box {
+            height: 50px;
+        }
+        .box {
+            height: 50px;
+            background-color: #bbeff2;
+            border: 1px solid #000;
+            border-radius: 25px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .col-2 .box {
+            background-color: #ffd6ef;
+        }
+        .col-3 .box {
+            background-color: #faecaa;
+        }
+        .col-4 .box {
+            background-color: #ffd6ef;
+        }
+        .col-5 .box {
+            background-color: #faecaa;
+        }
+        .col-6 .box {
+            background-color: #ffd6ef;
+        }
+        .note {
+            height: 50px;
+            background-color: #bbeff2;
+            border: 1px solid #000;
+            border-radius: 25px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weekly Schedule</h1>
+        <div class="schedule">
+            <div class="col-1">
+                <div class="empty-box"></div>
+                <div class="box">08:00</div>
+                <div class="box">09:00</div>
+                <div class="box">10:00</div>
+                <div class="box">11:00</div>
+                <div class="box">12:00</div>
+                <div class="box">13:00</div>
+                <div class="box">14:00</div>
+                <div class="box">15:00</div>
+                <div class="box">16:00</div>
+            </div>
+            <div class="col-2">
+                <div class="box">Math</div>
+                <div class="box">English</div>
+                <div class="box">Science</div>
+                <div class="box">Art</div>
+                <div class="box">Physical Education</div>
+                <div class="box">Lunch</div>
+                <div class="box">History</div>
+                <div class="box">Geography</div>
+                <div class="box">Music</div>
+                <div class="box">Library</div>
+            </div>
+            <div class="col-3">
+                <div class="box">English</div>
+                <div class="box">Science</div>
+                <div class="box">Math</div>
+                <div class="box">Physical Education</div>
+                <div class="box">Art</div>
+                <div class="box">Library</div>
+                <div class="box">Math</div>
+                <div class="box">Music</div>
+                <div class="box">History</div>
+                <div class="box">Geography</div>
+            </div>
+            <div class="col-4">
+                <div class="box">Science</div>
+                <div class="box">Physical Education</div>
+                <div class="box">English</div>
+                <div class="box">Library</div>
+                <div class="box">Math</div>
+                <div class="box">Music</div>
+                <div class="box">Physical Education</div>
+                <div class="box">History</div>
+                <div class="box">Geography</div>
+                <div class="box">Art</div>
+            </div>
+            <div class="col-5">
+                <div class="box">Physical Education</div>
+                <div class="box">Art</div>
+                <div class="box">Science</div>
+                <div class="box">Music</div>
+                <div class="box">History</div>
+                <div class="box">Geography</div>
+                <div class="box">English</div>
+                <div class="box">Math</div>
+                <div class="box">Library</div>
+                <div class="box">Physical Education</div>
+            </div>
+            <div class="col-6">
+                <div class="box">Art</div>
+                <div class="box">Library</div>
+                <div class="box">Music</div>
+                <div class="box">History</div>
+                <div class="box">Geography</div>
+                <div class="box">Physical Education</div>
+                <div class="box">Science</div>
+                <div class="box">Math</div>
+                <div class="box">English</div>
+                <div class="box">Lunch</div>
+            </div>
+        </div>
+        <div class="note">Note: This is a sample primary class timetable</div>
+    </div>
+</body>
+</html>
