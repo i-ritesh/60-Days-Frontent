@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="a" type="number" placeholder="Enter 1st Number" />
+    <input id="b" type="number" placeholder="Enter 2nd Number" />
+    <br />
+    <br />
+    <br />
+    <button id="add">Add</button>
+    <button id="sub">Subtract</button>
+    <button id="mul">Multipy</button>
+    <button id="divide">Divide</button>
+
+    <script>
+      let add = document.getElementById("add");
+      let sub = document.getElementById("sub");
+      let mul = document.getElementById("mul");
+      let divide = document.getElementById("divide");
+
+      add.addEventListener("click", () => {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        alert(a + b);
+      });
+
+      sub.addEventListener("click", () => {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        alert(a - b);
+      });
+
+      mul.addEventListener("click", () => {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        alert(a * b);
+      });
+
+      divide.addEventListener("click", () => {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        alert(a / b);
+      });
+
+
+    </script>
+  </body>
+</html>
