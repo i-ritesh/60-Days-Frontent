@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+        .container{
+            text-align: center;
+        }
+      .investorsContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 297px);
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
+        border-radius: 10px;
+        margin: 0px;
+      }
+      .logo{
+        max-height: 48px;
+      }
+    </style>
+    <div class="container"></div>
+  </body>
+</html>
+
+<script>
+  let container = document.querySelector(".container");
+
+  let investors = [
+    {
+      image:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg",
+      name: "Vijay Shekhar Sharma",
+      title: "Founder & CEO",
+      logo: "https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",
+    },
+    {
+      image:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",
+      name: "Kunal Shah",
+      title: "Founder",
+      logo: "https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png",
+    },
+    {
+      image:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",
+      name: "Amrish Rau",
+      title: "CEO",
+      logo: "https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png",
+    },
+    {
+      image:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg",
+      name: "Sampad Swain",
+      title: "Co-Founder & CEO",
+      logo: "https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png",
+    },
+  ];
+
+  let heading = document.createElement("h2");
+  heading.textContent = "Strategic Investors";
+  container.appendChild(heading);
+
+  let investorsContainer = document.createElement("div");
+  investorsContainer.className = "investorsContainer";
+  container.appendChild(investorsContainer);
+
+  investors.forEach((ele, i) => {
+    let div = document.createElement("div");
+    div.className = "card";
+    let img = document.createElement("img");
+    img.src = `${ele.image}`;
+    let h3 = document.createElement("h3");
+    h3.innerText = `${ele.name}`;
+    let p = document.createElement("p");
+    p.innerText = `${ele.title}`;
+    let logo = document.createElement("img");
+    logo.className="logo"
+    logo.src = `${ele.logo}`;
+
+    div.append(img, h3, p, logo);
+    investorsContainer.append(div);
+  });
+</script>
