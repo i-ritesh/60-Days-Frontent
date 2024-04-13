@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="signup">
+      <h1>Sign Up</h1>
+
+      <input type="text" id="name" placeholder="Enter Your Name" />
+      <select name="role" id="role" required>
+        <option value="HR">HR</option>
+        <option value="Employee">Employee</option>
+      </select>
+      <input type="password" id="password" placeholder="Enter password" />
+      <button>Signup</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  let btn = document.querySelector("#signup>button");
+
+  let signupData = []
+
+
+  let saveSignUpDetailsLocally=(signupData)=>{
+    let signup = localStorage.setItem("signupData", JSON.stringify(signupData))
+  }
+
+
+  let saveSignUpDetails = () => {
+    let name = document.querySelector("#name").value;
+    let role = document.querySelector("#signup>select").value;
+    let pas = document.querySelector("#password").value;
+
+
+    let obj={
+      "name":name,
+      "role":role,
+      "pas":pas
+    }
+
+    signupData.push(obj)
+
+    saveSignUpDetailsLocally(signupData)
+
+
+  };
+
+  btn.addEventListener("click", saveSignUpDetails);
+</script>

@@ -1,0 +1,286 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* NavTop */
+.nav-top{
+    width: 100%;
+    height: 30px;
+    display: inline-flex;
+    background: #eee;
+    align-items: center;
+    justify-content: center;
+}
+.nav-top div{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-top div a{
+    font-size: 11px;
+    margin: 5px;
+    padding: 5px;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: rgba(0,0,0,.8);
+}
+.nav-top div a i{
+    padding: 5px;
+}
+.nav-little_size{
+    display: none;
+}
+
+/* mainHeader */
+.header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.353);
+}
+.mainHeader{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    gap: 50px;
+    position: relative;
+}
+.mainHeader div{
+    margin: auto 0;
+}
+.mainDropdown a{
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+    font-family: sans-serif;
+    margin: 10px;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+.mainSearchMe{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    gap: 10px;
+    font-family: sans-serif;
+    justify-content: end;
+}
+.searchMe{
+    width: 50%;
+    height: 85%;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dddcdc81;
+    border-radius: 5px;
+    transform: .3s;
+}
+.searchMe input{
+    border: none;
+    outline: none;
+    width: 85%;
+    height: 90%;
+    background: transparent;
+}
+.searchMe input::placeholder{
+    color: gray;
+    font-size: 11px;
+}
+.searchMe input:focus-within {
+    background-color: #ffff;
+}
+.searchMe img{
+    padding: 5px;
+    cursor: pointer;
+    opacity: .4;
+}
+.loginMe{
+    color: rgb(51, 51, 51);
+    font-family: sans-serif;
+    margin: 10px;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+.focusSearchopt{
+    transform: .3s;
+    background-color: #fff;
+    border: 0.5px solid;
+}
+
+.header_2{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.mainHearder2{
+    width: 100%;
+    display: flex;
+    align-items:  center;
+    justify-content: space-around;
+    gap: 30px;
+}
+.mainHearder2 div{
+    margin: 8px 0 8px 0;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+/* for the user*/
+.forthe-user{
+    width: 100%;
+    height: 230px;
+    margin-top: 30px;
+    overflow: auto;
+}
+.forthe-user ul {
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .forthe-user li {
+    width: 150px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    margin-right: 10px; /* Adjust spacing between li elements */
+    position: relative;
+    text-align: center;
+  }
+  .forthe-user li div{
+    width: 150px;
+    height: 180px;
+    margin: 0 auto;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .forthe-user li p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 550;
+    line-height: 5px;
+  }
+  
+/* Banner */
+.banner{
+    margin-top: 10px;
+    width: 100%;
+    height: 160px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.banner1{
+    background-image: url('https://images.bewakoof.com/uploads/grid/app/Bwkf-x-IK-RM-Thin-Desktop-banner-strip--1--1707395643.gif');
+}
+.banner2{
+    background-image: url('https://images.bewakoof.com/uploads/grid/app/thin-banner-desktop---journey--1--1712137095.png');
+}
+.banner3{
+    background-image: url('https://images.bewakoof.com/uploads/grid/app/Desktop-Strip-3-1672040129.jpg');
+}.banner4{
+    background-image: url('https://images.bewakoof.com/uploads/grid/app/Desktop-Strip-3-1669022420.jpg');
+}
+/* hot thing */
+.hotThing{
+    width: 100%;
+    margin-top: 30px;
+}
+.hotThing h2{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #000000ce;
+}
+.mainthing{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ .mainthing img {
+    margin: 5px;
+}
+/* tranding_category */
+.tranding_categroies{
+    width: 100%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000d0;
+}
+.tranding_categroies .trandingbox1, .tranding_categroies .trandingbox2{
+    width: 100%;
+    display: flex;
+}
+.tranding_categroies .trandingbox1 div, .tranding_categroies .trandingbox2 div{
+    width: 250px;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.categries-to-bag{
+    margin-top: 40px;
+}
+
+/* accessries */
+.mainAccessries{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+@media (max-width:760px) {
+    
+.tranding_categroies .trandingbox1 div, .tranding_categroies .trandingbox2 div{
+    height: 20vh;
+}
+}
+@media (max-width:1280px) {
+    .mainHeader{
+        width: 95%;
+    }
+}
+@media (max-width:980px) {
+    .nav-top{
+        display: none;
+    }
+    .header{
+        display: none;
+    }
+    .nav-little_size{
+        display: block;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(211, 211, 211, 0.563);
+    }
+    .nav-little_size div{
+        display: inline;
+        margin: 10px;
+    }
+    .nav-little_size div a{
+        text-decoration: none;
+    }
+}
+@media (max-width:1060px) {
+    .mainHearder2 div{
+        font-size: 11px;
+    }
+}
