@@ -1,0 +1,23 @@
+
+.inputs {
+  font-size: 100px;
+    box-shadow: 0px 0px 10px black;
+    padding: 10px;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+button {
+  background-color: #3169f8;
+  border: 0.5px solid #000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+}
+
