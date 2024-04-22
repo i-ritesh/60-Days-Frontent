@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow</title>
+  <style>
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .stop {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .stop:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+  <button class="stop" onclick="toggleSlideShow()">Start Slideshow</button>
+  <div class="mySlides">
+    <img src="dummy1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy2.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy3.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy4.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy5.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy6.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy7.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy8.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy9.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy10.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy11.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy12.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy13.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy14.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy15.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy16.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy17.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy18.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy19.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="dummy20.jpg" style="width:100%">
+  </div>
+
+
+  <button class="prev" onclick="plusSlides(-1)" onmousedown="stopSlideShow()">❮</button>
+  <button class="next" onclick="plusSlides(1)" onmousedown="stopSlideShow()">❯</button>
+</div>
+
+<script>
+  let slideIndex = 0;
+  let slideInterval;
+
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex - 1].style.display = "block";
+  }
+
+  function plusSlides(n) {
+    clearInterval(slideInterval);
+    showSlides(slideIndex += n);
+  }
+
+  function stopSlideShow() {
+    clearInterval(slideInterval);
+    document.querySelector('.stop').textContent = 'Start Slideshow';
+    document.querySelector('.stop').onclick = function() {
+      toggleSlideShow();
+    };
+  }
+
+  function toggleSlideShow() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+      document.querySelector('.stop').textContent = 'Start Slideshow';
+    } else {
+      slideInterval = setInterval(showSlides, 2000); 
+      document.querySelector('.stop').textContent = 'Stop Slideshow';
+    }
+  }
+
+  showSlides();
+  slideInterval = setInterval(showSlides, 2000); 
+</script>
+
+</body>
+</html>
