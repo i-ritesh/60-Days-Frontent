@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetching and Displaying Users</title>
+</head>
+<body>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#fetchButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#userContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-card {
+    width: 250px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.user-info h2 {
+    margin: 0;
+}
+
+.user-info p {
+    margin: 5px 0;
+}
+
+    </style>
+
+
+    <h1>Fetching and Displaying Users</h1>
+    <button id="fetchButton">Fetch Users</button>
+    <div id="userContainer"></div>
+
+    <script>
+
+document.getElementById('fetchButton').addEventListener('click', fetchUsers);
+
+function fetchUsers() {
+    fetch('https://reqres.in/api/users')
+        .then(response => response.json())
+        .then(data => {
+            displayUsers(data.data);
+        })
+        .catch(error => console.error('Error fetching users:', error));
+}
+
+function displayUsers(users) {
+    const userContainer = document.getElementById('userContainer');
+    userContainer.innerHTML = ''; // Clear previous users
+
+    users.forEach(user => {
+        const userCard = document.createElement('div');
+        userCard.classList.add('user-card');
+        userCard.innerHTML = `
+            <img src="${user.avatar}" alt="User Avatar">
+            <div class="user-info">
+                <h2>${user.first_name} ${user.last_name}</h2>
+                <p>Email: ${user.email}</p>
+            </div>
+        `;
+        userContainer.appendChild(userCard);
+    });
+}
+
+    </script>
+</body>
+</html>
