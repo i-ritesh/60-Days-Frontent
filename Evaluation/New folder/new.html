@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management System</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .pagination {
+        margin-top: 20px;
+      }
+      .pagination button {
+        cursor: pointer;
+        padding: 5px 10px;
+        margin: 0 5px;
+      }
+      .pagination button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Employee Management System</h1>
+
+    <div>
+      <label for="department">Filter by Department:</label>
+      <select id="department">
+        <option value="">--Select Department--</option>
+        <option value="hr">HR</option>
+        <option value="finance">Finance</option>
+        <option value="marketing">Marketing</option>
+        <option value="engineering">Engineering</option>
+        <option value="operations">Operations</option>
+      </select>
+
+      <label for="gender">Filter by Gender:</label>
+      <select id="gender">
+        <option value="">--Select Gender--</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label for="sort">Sort by Salary:</label>
+      <select id="sort">
+        <option value="">--Select Order--</option>
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+    </div>
+
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>S.no</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Department</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody id="employeeData"></tbody>
+    </table>
+
+    <div class="pagination">
+      <button id="prevBtn" disabled>Previous</button>
+      <span id="currentPage">Page 1</span>
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <script>
+      const api =
+        "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-employees";
+      let currentPage = 1;
+      let departmentFilter = "";
+      let genderFilter = "";
+      let sortOption = "";
+
+      let fetchData = async () => {
+        let url = api + "?page=" + currentPage + "&limit=10";
+
+        if (departmentFilter) {
+          url += "&filterBy=department&filterValue=" + departmentFilter;
+        } else if (genderFilter) {
+          url += "&filterBy=gender&filterValue=" + genderFilter;
+        }
+
+        if (sortOption) {
+          url += "&sort=salary&order=" + sortOption;
+        }
+
+        let res = await fetch(url);
+        let resData = await res.json();
+        displayData(resData);
+      };
+
+      function displayData(data) {
+        const tableBody = document.getElementById("employeeData");
+        tableBody.innerHTML = "";
+        data.data.forEach((employee, index) => {
+          const row = `<tr>
+                    <td>${index + 1}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.gender}</td>
+                    <td>${employee.department}</td>
+                    <td>${employee.salary}</td>
+                </tr>`;
+          tableBody.innerHTML += row;
+        });
+      }
+
+      function updatePagination() {
+        document.getElementById(
+          "currentPage"
+        ).textContent = `Page ${currentPage}`;
+        document.getElementById("prevBtn").disabled = currentPage === 1;
+      }
+
+      document.getElementById("prevBtn").addEventListener("click", () => {
+        currentPage--;
+        fetchData();
+        updatePagination();
+      });
+
+      document.getElementById("nextBtn").addEventListener("click", () => {
+        currentPage++;
+        fetchData();
+        updatePagination();
+      });
+
+      document
+        .getElementById("department")
+        .addEventListener("change", (event) => {
+          departmentFilter = event.target.value;
+          currentPage = 1;
+          fetchData();
+          updatePagination();
+        });
+
+      document.getElementById("gender").addEventListener("change", (event) => {
+        genderFilter = event.target.value;
+
+        currentPage = 1;
+        fetchData();
+        updatePagination();
+      });
+
+      document.getElementById("sort").addEventListener("change", (event) => {
+        sortOption = event.target.value;
+        currentPage = 1;
+        fetchData();
+        updatePagination();
+      });
+
+      fetchData();
+      updatePagination();
+    </script>
+  </body>
+</html>
