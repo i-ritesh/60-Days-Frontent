@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import LoadingIndicator from "../indicators/LoadingIndicator";
-// import ErrorIndicator from "../indicators/ErrorIndicator";
+import LoadingIndicator from "../components/indicators/LoadingIndicator"
+import ErrorIndicator from "../components/indicators/ErrorIndicator";
 import ProductCard from "../components/Product/ProductCard";
 
 function Products() {
@@ -58,6 +58,15 @@ function Products() {
 
     return filteredProducts;
   };
+
+  if(loader){
+   <LoadingIndicator/>
+  }
+
+  if(err){
+    <ErrorIndicator/>
+  }
+
 
   useEffect(() => {
     fetchProducts();

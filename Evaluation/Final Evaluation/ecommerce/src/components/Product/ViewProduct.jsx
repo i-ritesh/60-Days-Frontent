@@ -35,7 +35,7 @@ const ViewProduct = () => {
       );
 
       const data = res.data;
-      setProduct(data.data); // Accessing the correct nested data
+      setProduct(data.data); 
       setLoading(false);
     } catch (error) {
       setLoading(false);
